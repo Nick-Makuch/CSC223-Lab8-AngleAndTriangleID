@@ -110,4 +110,18 @@ public class Point implements Comparable<Point>
 		return getName() + "(" + getX() + " , " + getY() + ")" + "\n";
 	}
 	
+	/**
+	 * computes the distance between two points
+	 * 
+	 * @param p1
+	 * @param p2
+	 * @return distance
+	 */
+	public static double distance(Point p1, Point p2) 
+	{
+		double x = p1.getX() - p2.getX();
+		double y = p1.getY() - p2.getY();
+		double distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+		return distance;
+	}
 }
