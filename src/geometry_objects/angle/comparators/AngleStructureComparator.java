@@ -58,6 +58,40 @@ public class AngleStructureComparator implements Comparator<Angle>
 	@Override
 	public int compare(Angle left, Angle right)
 	{
-        // TODO
+		//checks if angles are not comparable
+		if (!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure()) || !left.getVertex().equals(right.getVertex()))
+	    	return Integer.MAX_VALUE;
+		
+	    //if (left.getRay1().equals(right.getRay1()) || left.getRay1().equals(right.getRay2())) return 0;
+	    
+		//checks if angles are equal (meaning inconclusive
+		if (left.equals(right)) return 0;
+		
+		int leftScore = 0;
+		int rightScore = 0;
+		
+		//checks which angle is larger
+		if(left.getRay1().has(right.getRay1().other(right.getVertex())) || 
+				left.getRay1().has(right.getRay2().other(right.getVertex())))
+			leftScore += 1;
+		else
+			rightScore += 1;
+		
+			
+		if(left.getRay2().has(right.getRay1().other(right.getVertex())) || 
+				left.getRay1().has(right.getRay2().other(right.getVertex())))
+			leftScore += 1;
+		else
+			rightScore += 1;
+		
+		if(leftScore > rightScore) return 1;
+		if (rightScore > leftScore) return -1;
+		if (leftScore == rightScore) return 0; 
+			
+
+		return null;
+		
+		
+		
 	}
 }
