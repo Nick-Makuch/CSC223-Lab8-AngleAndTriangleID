@@ -20,7 +20,7 @@ import utilities.eq_classes.EquivalenceClasses;
  *   canonical = BAE
  *   rest = BAF, CAE, DAE, CAF, DAF
  */
-public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
+public class AngleEquivalenceClasses extends utilities.EquivalenceClasses<Angle>
 {
 	// TODO
 }

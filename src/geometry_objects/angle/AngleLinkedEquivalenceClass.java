@@ -23,7 +23,7 @@ import utilities.eq_classes.LinkedEquivalenceClass;
  * 
  * @author XXX
  */
-public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
+public class AngleLinkedEquivalenceClass extends utilities.LinkedEquivalenceClass<Angle>
 {
     // TODO
 }
