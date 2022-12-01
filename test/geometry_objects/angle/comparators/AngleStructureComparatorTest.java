@@ -17,17 +17,17 @@ public class AngleStructureComparatorTest {
 		//   \
 		//    \
 		//     \
-		//      E(2,4)
+		//      E(2,2)
 		//       \
 		//        \
-		//         F (4,6)
+		//         F (4,4)
 		// 
 		Point a = new Point(0,0);
 		Point b = new Point(8,0);
 		Point c = new Point(12,0);
 		Point d = new Point(15,0);
-		Point e = new Point(2,4);
-		Point f = new Point(4,6);
+		Point e = new Point(2,2);
+		Point f = new Point(4,4);
 		Segment ab = new Segment(a,b);
 		Segment ac = new Segment(a,c);
 		Segment ad = new Segment(a,d);
@@ -50,8 +50,5 @@ public class AngleStructureComparatorTest {
 		catch (Exception exc){
 			System.out.println("You messed up");
 		}
-		
-		
-		
 	}
 }

@@ -56,47 +56,6 @@ public class AngleStructureComparator implements Comparator<Angle>
  	 *            0 indicates an inconclusive result
 	 */
 	@Override
-/*	public int compare(Angle left, Angle right)
-	{
-		//checks if angles are not comparable
-		if (!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure()) || !left.getVertex().equals(right.getVertex()))
-	    	return Integer.MAX_VALUE;
-		
-		//checks if angles are equal (meaning inconclusive
-		if (left.equals(right)) return 0;
-		
-		// if left ray1 length is greater than right's corresponding than right ray1 length or 
-		if ((left.getRay1().length() > right.getRay1().length() || 
-				left.getRay1().length() > right.getRay2().length()) &&
-				(left.getRay2().length() < right.getRay1().length() ||
-				left.getRay2().length() < right.getRay2().length())
-				)
-			return 0;
-			
-		
-		int leftScore = 0;
-		int rightScore = 0;
-		
-		//checks which angle is larger
-		if(left.getRay1().has(right.getRay1().other(right.getVertex())) || 
-				left.getRay1().has(right.getRay2().other(right.getVertex())))
-			leftScore += 1;
-		else
-			rightScore += 1;
-		
-			
-		if(left.getRay2().has(right.getRay1().other(right.getVertex())) || 
-				left.getRay1().has(right.getRay2().other(right.getVertex())))
-			leftScore += 1;
-		else
-			rightScore += 1;
-		
-		if(leftScore > rightScore) return 1;
-		if (rightScore > leftScore) return -1;
-		return 0;
-	}
-	*/
-	
 	public int compare(Angle left, Angle right) {
 		if (!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure()) || !left.getVertex().equals(right.getVertex()))
 	    	return STRUCTURALLY_INCOMPARABLE;
