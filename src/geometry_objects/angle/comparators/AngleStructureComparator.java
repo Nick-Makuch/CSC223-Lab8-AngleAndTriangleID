@@ -56,16 +56,23 @@ public class AngleStructureComparator implements Comparator<Angle>
  	 *            0 indicates an inconclusive result
 	 */
 	@Override
-	public int compare(Angle left, Angle right)
+/*	public int compare(Angle left, Angle right)
 	{
 		//checks if angles are not comparable
 		if (!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure()) || !left.getVertex().equals(right.getVertex()))
 	    	return Integer.MAX_VALUE;
 		
-	    //if (left.getRay1().equals(right.getRay1()) || left.getRay1().equals(right.getRay2())) return 0;
-	    
 		//checks if angles are equal (meaning inconclusive
 		if (left.equals(right)) return 0;
+		
+		// if left ray1 length is greater than right's corresponding than right ray1 length or 
+		if ((left.getRay1().length() > right.getRay1().length() || 
+				left.getRay1().length() > right.getRay2().length()) &&
+				(left.getRay2().length() < right.getRay1().length() ||
+				left.getRay2().length() < right.getRay2().length())
+				)
+			return 0;
+			
 		
 		int leftScore = 0;
 		int rightScore = 0;
@@ -86,12 +93,27 @@ public class AngleStructureComparator implements Comparator<Angle>
 		
 		if(leftScore > rightScore) return 1;
 		if (rightScore > leftScore) return -1;
-		if (leftScore == rightScore) return 0; 
-			
-
-		return null;
+		return 0;
+	}
+	*/
+	
+	public int compare(Angle left, Angle right) {
+		if (!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure()) || !left.getVertex().equals(right.getVertex()))
+	    	return STRUCTURALLY_INCOMPARABLE;
+		if (left.equals(right)) return 0;
 		
+		// if one of left's rays is equal to the right's corresponding ray but the others differ in length
+		if (left.getRay1().equals(right.getRay1()) && (left.getRay2().length() > right.getRay2().length())) return 1;
+		if (left.getRay1().equals(right.getRay2()) && (left.getRay2().length() < right.getRay1().length())) return -1;
+		if (left.getRay2().equals(right.getRay1()) && (left.getRay1().length() > right.getRay2().length())) return 1;
+		if (left.getRay2().equals(right.getRay2()) && (left.getRay1().length() < right.getRay1().length())) return -1;
 		
-		
+		// if both of left's rays are greater than both of right's rays
+		if ((left.getRay1().HasSubSegment(right.getRay1()) || left.getRay1().HasSubSegment(right.getRay2())) &&
+				(left.getRay2().HasSubSegment(right.getRay1()) || left.getRay2().HasSubSegment(right.getRay2()))) return 1;
+		// if both of right's rays are greater than both of left's rays
+		if ((right.getRay1().HasSubSegment(left.getRay1()) || right.getRay1().HasSubSegment(left.getRay2())) &&
+				(right.getRay2().HasSubSegment(left.getRay1()) || right.getRay2().HasSubSegment(left.getRay2()))) return -1;
+		return 0;
 	}
 }
