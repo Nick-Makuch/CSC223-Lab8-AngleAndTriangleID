@@ -57,8 +57,17 @@ public class AngleStructureComparator implements Comparator<Angle>
 	 */
 	@Override
 	public int compare(Angle left, Angle right) {
-		if (!MathUtilities.doubleEquals(left.getMeasure(), right.getMeasure()) || !left.getVertex().equals(right.getVertex()))
-	    	return STRUCTURALLY_INCOMPARABLE;
+		// if either of angles are null
+		if (left == null || right == null) return STRUCTURALLY_INCOMPARABLE;
+		
+		// they don't share vertices
+		if (!left.getVertex().equals(right.getVertex())) return STRUCTURALLY_INCOMPARABLE;
+		// the rays don't overlap
+		
+		if ((!Segment.overlaysAsRay(left.getRay1(), right.getRay1()) && !Segment.overlaysAsRay(left.getRay1(), left.getRay2())) || 
+				(!Segment.overlaysAsRay(left.getRay2(), right.getRay1()) && !Segment.overlaysAsRay(left.getRay2(), right.getRay2()))) 
+				return STRUCTURALLY_INCOMPARABLE;
+
 		if (left.equals(right)) return 0;
 		
 		// if one of left's rays is equal to the right's corresponding ray but the others differ in length

@@ -1,7 +1,7 @@
 package geometry_objects.angle;
 
 import geometry_objects.angle.comparators.AngleStructureComparator;
-import utilities.eq_classes.LinkedEquivalenceClass;
+import utilities.LinkedEquivalenceClass;
 
 /**
  * This implementation requires greater knowledge of the implementing Comparator.
@@ -42,28 +42,22 @@ public class AngleLinkedEquivalenceClass extends utilities.LinkedEquivalenceClas
     			|| _comparator.compare(a, _canonical) == 0);
     }
     
-    @Override
-    public void setCanonical(Angle element) {
-    	if (_comparator.compare(element, _canonical) == -1) _canonical = element;
-    }
-    
-    @Override
-    public boolean demoteAndSetCanonical(Angle a) {
-    	// TODO
-    }
-    
-    @Override
-    public String toString() {
-    	// TODO
-    }
-    
-    @Override
-    public boolean contains(Angle a) {
-    	// TODO
-    }
-    
+    /**
+     * adds an element and if it's the smallest element in the class
+     * its set as the canonical element
+     * 
+     * @param a
+     * @return true if element is added
+     */
     @Override
     public boolean add(Angle a) {
-    	// TODO
+    	if (_canonical == null) {
+    		_canonical = a;
+    		return true;
+    	}
+    	if (_comparator.compare(a, _canonical) == -1) 
+    		return demoteAndSetCanonical(a);
+    	_rest.addToFront(a);
+    	return _rest.contains(a);
     }
 }

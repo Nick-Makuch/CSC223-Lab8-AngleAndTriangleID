@@ -135,7 +135,7 @@ public class LinkedEquivalenceClass<T>
 		return true;
 		}
 		return false;
-
+	
 	}
 	
 	/**
@@ -146,10 +146,9 @@ public class LinkedEquivalenceClass<T>
 	public boolean demoteAndSetCanonical(T element)
 	{
 		if (_canonical != null) {
-		//T data = _rest.pop();
-		_rest.addToFront(_canonical);
-		_canonical = element;
-		return true;
+			_rest.addToFront(_canonical);
+			_canonical = element;
+			return true;
 		}
 		return false;
 

@@ -22,5 +22,13 @@ import utilities.eq_classes.EquivalenceClasses;
  */
 public class AngleEquivalenceClasses extends utilities.EquivalenceClasses<Angle>
 {
-	// TODO
+	public AngleEquivalenceClasses() {
+		super(new AngleStructureComparator());
+	}
+	
+	public boolean add(Angle element) {
+		for (int i = 0; i < _rest.size(); i++) {
+			
+		}
+	}
 }
