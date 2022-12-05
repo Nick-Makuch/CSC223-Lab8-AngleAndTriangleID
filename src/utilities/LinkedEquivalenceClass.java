@@ -7,7 +7,7 @@ import java.util.Comparator;
  * A linked list of equivalent values according
  * to a specified canonical value.
  *
- * @author Tate Rosen & Miles Dame & Nick MaKuch
+ * @author Tate Rosen & Miles Dame & Nick Makuch
  * @date 09/14/2022
  */
 
