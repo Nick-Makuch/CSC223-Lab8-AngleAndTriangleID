@@ -28,8 +28,9 @@ class AngleIdentifierTest
 	protected void init(String filename)
 	{
 		FigureNode fig = InputFacade.extractFigure("crossing_symmetric_triangle.json");
+		String file = "crossing_symmetric_triangle.json";
 
-		Map.Entry<PointDatabase, Set<Segment>> pair = InputFacade.toGeometryRepresentation(fig);
+		Map.Entry<PointDatabase, Set<Segment>> pair = InputFacade.toGeometryRepresentation(file);
 
 		_points = pair.getKey();
 
@@ -50,7 +51,7 @@ class AngleIdentifierTest
 	// This figure contains 44 angles
 	//
 	@Test
-	void test_crossing_symmetric_triangle()
+	void test_crossing_symmetric_triangle() throws FactException
 	{
 		init("crossing_symmetric_triangle.json");
 

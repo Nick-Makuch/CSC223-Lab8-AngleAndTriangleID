@@ -1,7 +1,10 @@
 package geometry_objects.angle;
 
+import java.util.ArrayList;
+
 import geometry_objects.angle.comparators.AngleStructureComparator;
 import utilities.EquivalenceClasses;
+import utilities.LinkedEquivalenceClass;
 
 /**
  * Given the figure below:
@@ -24,8 +27,15 @@ public class AngleEquivalenceClasses extends utilities.EquivalenceClasses<Angle>
 {
 	public AngleEquivalenceClasses() {
 		super(new AngleStructureComparator());
+		//super._rest = new ArrayList< (LinkedEquivalenceClass<Angle>) AngleLinkedEquivalenceClass>();
 	}
 	
+	/**
+	 * Locates which Linked Equivalence Class angle belongs in and then adds it
+	 * 
+	 * @param Angle element
+	 * @return boolean (true if element is added)
+	 * */
 	public boolean add(Angle element) {
 		for(int i = 0; i < _rest.size(); i++) 
 		{
@@ -36,6 +46,6 @@ public class AngleEquivalenceClasses extends utilities.EquivalenceClasses<Angle>
 			}
 		}
 		
-		return false;
+		return _rest.contains(element);
 	}
 }
