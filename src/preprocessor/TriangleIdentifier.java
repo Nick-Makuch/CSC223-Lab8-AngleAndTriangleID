@@ -12,6 +12,7 @@ import geometry_objects.Triangle;
 import geometry_objects.angle.Angle;
 import geometry_objects.angle.AngleEquivalenceClasses;
 import geometry_objects.angle.AngleLinkedEquivalenceClass;
+import utilities.LinkedEquivalenceClass;
 
 public class TriangleIdentifier
 {
@@ -45,7 +46,7 @@ public class TriangleIdentifier
 		AngleIdentifier angID = new AngleIdentifier(_segments);
 		AngleEquivalenceClasses angles = angID.getAngles();
 		
-		for(AngleLinkedEquivalenceClass alec : angles.getList()) 
+		for(AngleLinkedEquivalenceClass alec : angles.getList())
 		{
 			List lec = alec.getList();
 			for(Object angle : lec) 

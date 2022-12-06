@@ -1,5 +1,7 @@
 package preprocessor;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -35,18 +37,34 @@ public class AngleIdentifier
 
 	private void computeAngles() throws FactException
 	{
-		Set<Segment> segSet = _segments.keySet();
+		Collection<Segment> segCollection = _segments.values();
+		List<Segment> segList = new ArrayList<Segment>(segCollection);
 		
-		for(Segment s1 : segSet) 
+		for(int i = 0; i < segList.size(); i++) 
 		{
-			for(Segment s2 : segSet) 
+			for(int j = i+1; j < segList.size() - i; j++) 
 			{
-				if(s1.sharedVertex(s2) != null && !Segment.overlaysAsRay(s2, s1) 
-						&& !_angles.contains(new Angle(s1, s2)) && !s1.equals(s2)) 
+				if(segList.get(i).sharedVertex(segList.get(j)) != null && !Segment.overlaysAsRay(segList.get(i), segList.get(j)) 
+						&& !_angles.contains(new Angle(segList.get(i), segList.get(j))))
 				{
-					_angles.add(new Angle(s1, s2));
+					_angles.add(new Angle(segList.get(i), segList.get(j)));
 				}
 			}
 		}
+		
+		
+//		Set<Segment> segSet = _segments.keySet();
+//		
+//		for(Segment s1 : segSet) 
+//		{
+//			for(Segment s2 : segSet) 
+//			{
+//				if(s1.sharedVertex(s2) != null && !Segment.overlaysAsRay(s2, s1) 
+//						&& !_angles.contains(new Angle(s1, s2)) && !s1.equals(s2)) 
+//				{
+//					_angles.add(new Angle(s1, s2));
+//				}
+//			}
+//		}
 	}
 }
