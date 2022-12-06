@@ -37,7 +37,7 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 	 * @return boolean (true if element is added)
 	 * */
 	public boolean add(Angle element) 
-	{	
+	{
 		for(int i = 0; i < _rest.size(); i++) 
 		{
 			if(((AngleLinkedEquivalenceClass) _rest.get(i)).belongs(element)) 
@@ -54,6 +54,4 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 	
 	//temporary for testing
 	public List<LinkedEquivalenceClass<Angle>> getList(){return _rest;}
-	
-	
 }

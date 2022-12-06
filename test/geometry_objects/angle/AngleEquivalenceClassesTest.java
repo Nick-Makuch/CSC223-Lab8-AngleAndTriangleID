@@ -1,18 +1,17 @@
 package geometry_objects.angle;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import exceptions.FactException;
 import geometry_objects.Segment;
 import geometry_objects.points.Point;
 
-public class AngleLinkedEquivalenceClassTest {
+public class AngleEquivalenceClassesTest {
 
 	@Test
-	void belongsAndAddTest() {
+	void addTest() {
 		//  E(0,0)----F(4,0)-----H(8,0) 
 		//   \         |         /
 		//    \        |        / 
@@ -24,7 +23,7 @@ public class AngleLinkedEquivalenceClassTest {
 		//   	    \  |  /
 		//     	     \ | /
 		//            C(4,4)
-		//
+		
 		Point a = new Point(2,2);
 		Point b = new Point(6,2);
 		Point c = new Point(4,4);
@@ -41,8 +40,8 @@ public class AngleLinkedEquivalenceClassTest {
 		Segment cf = new Segment(c, f);
 		Segment ch = new Segment(c, h);
 		Segment ef = new Segment(e, f);
-		AngleLinkedEquivalenceClass aeq = new AngleLinkedEquivalenceClass();
-		
+		AngleEquivalenceClasses aEqCl = new AngleEquivalenceClasses();
+
 		try {
 			Angle adc = new Angle(ad, cd);
 			Angle cfe = new Angle(cf, ef);
@@ -50,18 +49,15 @@ public class AngleLinkedEquivalenceClassTest {
 			Angle acb = new Angle(ac, bc);
 			Angle ech = new Angle(ce, ch);
 			Angle bdc = new Angle(bd, cd);
-			aeq.setCanonical(ech);
-			assertTrue(aeq.belongs(acb));
-			assertFalse(aeq.belongs(acd));
-			assertTrue(aeq.add(acb));
-			assertTrue(aeq.add(ech));	
-			
-			aeq.clear();
-			aeq.setCanonical(adc);
-			assertFalse(aeq.belongs(cfe));
-			assertFalse(aeq.belongs(bdc));
-		} catch (FactException exc) {
-			System.out.println("You messed up");
+			assertTrue(aEqCl.add(bdc));
+			assertTrue(aEqCl.add(adc));
+			assertTrue(aEqCl.add(acd));
+			assertTrue(aEqCl.add(acb));
+			assertTrue(aEqCl.add(ech));
+			assertEquals(4, aEqCl.size());
+		}
+		catch (Exception exc) {
+			System.err.println("Angles are invalid");
 		}
 	}
 }
