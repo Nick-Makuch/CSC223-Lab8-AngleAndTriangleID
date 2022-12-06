@@ -64,7 +64,7 @@ public class AngleStructureComparator implements Comparator<Angle>
 		if (!left.getVertex().equals(right.getVertex())) return STRUCTURALLY_INCOMPARABLE;
 		// the rays don't overlap
 		
-		if ((!Segment.overlaysAsRay(left.getRay1(), right.getRay1()) && !Segment.overlaysAsRay(left.getRay1(), left.getRay2())) || 
+		if ((!Segment.overlaysAsRay(left.getRay1(), right.getRay1()) && !Segment.overlaysAsRay(left.getRay1(), right.getRay2())) || 
 				(!Segment.overlaysAsRay(left.getRay2(), right.getRay1()) && !Segment.overlaysAsRay(left.getRay2(), right.getRay2()))) 
 				return STRUCTURALLY_INCOMPARABLE;
 

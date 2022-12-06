@@ -75,6 +75,12 @@ public class AngleIdentifier
 //			}
 //		}
 //		
+//		for(LinkedEquivalenceClass<Angle> alec : _angles.getList()) 
+//		{
+//
+//			System.out.println(alec.toString() + "\n");
+//		}
+//		
 //		for(Segment segment : segSet)
 //			System.out.println(segment.toString());
 //		System.out.println(segSet.size());

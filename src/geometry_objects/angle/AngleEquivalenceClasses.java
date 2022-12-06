@@ -40,9 +40,9 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 	{	
 		for(int i = 0; i < _rest.size(); i++) 
 		{
-			if(_rest.get(i).belongs(element)) 
+			if(((AngleLinkedEquivalenceClass) _rest.get(i)).belongs(element)) 
 			{
-				_rest.get(i).add(element);
+				((AngleLinkedEquivalenceClass) _rest.get(i)).add(element);
 				return true;
 			}
 		}
