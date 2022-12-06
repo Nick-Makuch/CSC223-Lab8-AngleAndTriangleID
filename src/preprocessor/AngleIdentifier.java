@@ -10,6 +10,8 @@ import exceptions.FactException;
 import geometry_objects.Segment;
 import geometry_objects.angle.Angle;
 import geometry_objects.angle.AngleEquivalenceClasses;
+import geometry_objects.angle.AngleLinkedEquivalenceClass;
+import utilities.LinkedEquivalenceClass;
 
 public class AngleIdentifier
 {
@@ -42,7 +44,7 @@ public class AngleIdentifier
 		
 		for(int i = 0; i < segList.size(); i++) 
 		{
-			for(int j = i+1; j < segList.size() - i; j++) 
+			for(int j = i+1; j < segList.size(); j++) 
 			{
 				if(segList.get(i).sharedVertex(segList.get(j)) != null && !Segment.overlaysAsRay(segList.get(i), segList.get(j)) 
 						&& !_angles.contains(new Angle(segList.get(i), segList.get(j))))
@@ -50,6 +52,12 @@ public class AngleIdentifier
 					_angles.add(new Angle(segList.get(i), segList.get(j)));
 				}
 			}
+		}
+		
+		for(LinkedEquivalenceClass<Angle> alec : _angles.getList()) 
+		{
+
+			System.out.println(alec.toString() + "\n");
 		}
 		
 		
@@ -66,5 +74,9 @@ public class AngleIdentifier
 //				}
 //			}
 //		}
+//		
+//		for(Segment segment : segSet)
+//			System.out.println(segment.toString());
+//		System.out.println(segSet.size());
 	}
 }

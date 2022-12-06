@@ -59,9 +59,22 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     	}
     	if (_comparator.compare(a, _canonical) == -1) 
     		return demoteAndSetCanonical(a);
+    	
     	_rest.addToFront(a);
+    	
     	return _rest.contains(a);
     }
 
+
+    @Override
+    public String toString() 
+    {
+    	StringBuilder str = new StringBuilder();
+    	str.append("Canonical: " + _canonical.toString() + " Rest: ");
+    	str.append(_rest.toString());
+    	
+    	return str.toString();
+    }
+    
     
 }

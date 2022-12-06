@@ -28,8 +28,6 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 {	
 	public AngleEquivalenceClasses() {
 		super(new AngleStructureComparator());
-		//super._rest = new ArrayList<((LinkedEquivalenceClass<Angle>) AngleLinkedEquivalenceClass)>();
-		//super._rest = new ArrayList<AngleLinkedEquivalenceClass>();
 	}
 	
 	/**
@@ -53,4 +51,9 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 		if (!lec.add(element)) return false;
 		return _rest.add(lec);
 	}
+	
+	//temporary for testing
+	public List<LinkedEquivalenceClass<Angle>> getList(){return _rest;}
+	
+	
 }

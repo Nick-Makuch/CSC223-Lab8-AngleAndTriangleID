@@ -42,17 +42,20 @@ public class TriangleIdentifier
 	private void computeTriangles() throws FactException
 	{
 		// TODO
-		Set<Segment> segSet = _segments.keySet();
-		AngleIdentifier angID = new AngleIdentifier(_segments);
-		AngleEquivalenceClasses angles = angID.getAngles();
 		
-		for(AngleLinkedEquivalenceClass alec : angles.getList())
-		{
-			List lec = alec.getList();
-			for(Object angle : lec) 
-			{
-				//if(segSet.contains(new Segment(angle, null)))
-			}
-		}
+		
+		
+//		Set<Segment> segSet = _segments.keySet();
+//		AngleIdentifier angID = new AngleIdentifier(_segments);
+//		AngleEquivalenceClasses angles = angID.getAngles();
+//		
+//		for(AngleLinkedEquivalenceClass alec : angles.getList())
+//		{
+//			List lec = alec.getList();
+//			for(Object angle : lec) 
+//			{
+//				//if(segSet.contains(new Segment(angle, null)))
+//			}
+//		}
 	}
 }

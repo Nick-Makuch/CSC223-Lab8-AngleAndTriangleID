@@ -237,7 +237,7 @@ public class LinkedList<T> {
 	 * pointed to by head. If not, it calls the method again and points
 	 * the Node that is returned to the current Node, then returns the 
 	 * current Node. Then in the original method, it points the new last
-	 * Node to tail. 
+	 * Node to tail.
 	 */
 	public void reverse() {
 		if (this.size() <= 1) return;

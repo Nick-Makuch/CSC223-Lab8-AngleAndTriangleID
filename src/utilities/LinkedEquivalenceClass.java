@@ -2,6 +2,7 @@
 package utilities;
 
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * A linked list of equivalent values according
