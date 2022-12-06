@@ -58,7 +58,7 @@ public class TriangleIdentifier
 					// try to create triangle with given segments
 					try {
 						_triangles.add(new Triangle(inList));
-					} catch (FactException e) {
+					} catch (Exception e) {
 					}
 				}
 			}

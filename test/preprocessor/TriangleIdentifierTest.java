@@ -27,8 +27,9 @@ class TriangleIdentifierTest
 	protected void init(String filename)
 	{
 		FigureNode fig = InputFacade.extractFigure("crossing_symmetric_triangle.json");
+		String file = "crossing_symmetric_triangle.json";
 
-		Map.Entry<PointDatabase, Set<Segment>> pair = InputFacade.toGeometryRepresentation(fig);
+		Map.Entry<PointDatabase, Set<Segment>> pair = InputFacade.toGeometryRepresentation(file);
 
 		_points = pair.getKey();
 
@@ -49,7 +50,7 @@ class TriangleIdentifierTest
 	// This figure contains 12 triangles
 	//
 	@Test
-	void test_crossing_symmetric_triangle()
+	void test_crossing_symmetric_triangle() throws FactException
 	{
 		init("crossing_symmetric_triangle.json");
 
@@ -78,7 +79,7 @@ class TriangleIdentifierTest
 		//
 		// Implied minimal segments: 4 in this figure.
 		//
-		Point a_star = _points.getPoint(3,3);
+		Point a_star = new Point(3.0, 3.0);
 
 		Segment a_star_b = new Segment(a_star, _points.getPoint("B"));
 		Segment a_star_c = new Segment(a_star, _points.getPoint("C"));

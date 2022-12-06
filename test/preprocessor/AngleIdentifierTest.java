@@ -79,7 +79,7 @@ class AngleIdentifierTest
 		//
 		// Implied minimal segments: 4 in this figure.
 		//
-		Point a_star = _points.getPoint(3,3);
+		Point a_star = new Point(3.0, 3.0);
 
 		Segment a_star_b = new Segment(a_star, _points.getPoint("B"));
 		Segment a_star_c = new Segment(a_star, _points.getPoint("C"));
@@ -192,6 +192,7 @@ class AngleIdentifierTest
 		//
 		for (Angle expected : expectedAngles)
 		{
+			System.out.println(expected.toString());
 			assertTrue(computedAngles.contains(expected));
 		}
 	}

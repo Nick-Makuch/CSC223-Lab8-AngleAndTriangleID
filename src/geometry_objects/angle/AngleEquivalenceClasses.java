@@ -52,6 +52,18 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 		return _rest.add(lec);
 	}
 	
+	@Override
+	public boolean contains(Angle target)
+	{
+		for(int i = 0; i < _rest.size(); i++) 
+		{
+			if(((AngleLinkedEquivalenceClass) _rest.get(i)).contains(target))
+				return true;
+		}
+		return false;
+	}
+	
+	
 	//temporary for testing
 	public List<LinkedEquivalenceClass<Angle>> getList(){return _rest;}
 }

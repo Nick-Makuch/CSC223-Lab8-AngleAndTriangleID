@@ -81,6 +81,7 @@ public class Segment extends GeometricObject
 	 */
 	public Point sharedVertex(Segment that)
 	{
+		if(_point1 == null || _point2 == null) return null;
 		if (this.equals(that)) return null;
 
 		if (_point1.equals(that._point1)) return _point1;
@@ -94,6 +95,7 @@ public class Segment extends GeometricObject
 	public boolean equals(Object obj)
 	{
 		if (obj == null) return false;
+		if(_point1 == null || _point2 == null) return false;
 		
 		if (!(obj instanceof Segment)) return false;
 		Segment that = (Segment)obj;
@@ -111,7 +113,11 @@ public class Segment extends GeometricObject
 	 * @param pt -- a point
 	 * @return true if @pt is one of the endpoints of this segment
 	 */
-	public boolean has(Point pt) { return _point1.equals(pt) || _point2.equals(pt); }
+	public boolean has(Point pt) 
+	{ 
+		if(pt == null || _point1 == null || _point2 == null) return false;
+		return _point1.equals(pt) || _point2.equals(pt); 
+	}
 
 	/*
 	 * @return true if this segment is horizontal (by analysis of both endpoints having same y-coordinate)

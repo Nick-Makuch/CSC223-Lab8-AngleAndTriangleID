@@ -66,7 +66,15 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     }
     
     @Override
-    public String toString() 
+    public boolean contains(Angle target) 
+    {
+    	if(target == null) return false;
+    	if(canonical().equals(target) || _rest.contains(target)) return true;
+    	return false;
+    }
+    
+    @Override
+    public String toString()  
     {
     	StringBuilder str = new StringBuilder();
     	str.append("Canonical: " + _canonical.toString() + " Rest: ");
