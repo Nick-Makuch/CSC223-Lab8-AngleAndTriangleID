@@ -192,7 +192,6 @@ class AngleIdentifierTest
 		//
 		for (Angle expected : expectedAngles)
 		{
-			System.out.println(expected.toString());
 			assertTrue(computedAngles.contains(expected));
 		}
 	}

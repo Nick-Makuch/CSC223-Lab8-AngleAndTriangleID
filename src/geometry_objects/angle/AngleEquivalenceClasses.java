@@ -64,6 +64,4 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 	}
 	
 	
-	//temporary for testing
-	public List<LinkedEquivalenceClass<Angle>> getList(){return _rest;}
 }
