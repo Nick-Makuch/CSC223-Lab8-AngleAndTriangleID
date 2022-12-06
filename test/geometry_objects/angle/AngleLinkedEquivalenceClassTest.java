@@ -13,7 +13,6 @@ public class AngleLinkedEquivalenceClassTest {
 
 	@Test
 	void belongsAndAddTest() {
-		//
 		//  E(0,0)----F(4,0)-----H(8,0) 
 		//   \         |         /
 		//    \        |        / 
@@ -54,6 +53,12 @@ public class AngleLinkedEquivalenceClassTest {
 			assertTrue(aeq.belongs(acb));
 			assertFalse(aeq.belongs(acd));
 			assertTrue(aeq.add(acb));
+			assertTrue(aeq.add(ech));	
+			
+			aeq.clear();
+			aeq.setCanonical(adc);
+			assertTrue(aeq.belongs(cfe));
+			assertTrue(aeq.add(cfe));
 		} catch (FactException exc) {
 			System.out.println("You messed up");
 		}

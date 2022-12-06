@@ -45,11 +45,11 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     }
     
     /**
-     * adds an element and if it's the smallest element in the class
-     * its set as the canonical element
+     * adds an element and sets it as the canonical element if it's 
+     * smaller than the current canonical element
      * 
      * @param a
-     * @return true if element is added
+     * @return true if element is added successfully
      */
     @Override
     public boolean add(Angle a) {
@@ -64,8 +64,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     	
     	return _rest.contains(a);
     }
-
-
+    
     @Override
     public String toString() 
     {
@@ -75,6 +74,4 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     	
     	return str.toString();
     }
-    
-    
 }
